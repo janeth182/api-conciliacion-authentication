@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+  message-server:
+    container_name: api-conciliacion-authentication
+    build:
+      context: docker-api-conciliacion-authentication
+      dockerfile: Dockerfile
+    image: api-conciliacion-authentication:latest
+    ports:
+      - 8130:8130
+    networks:
+      - spring-cloud-network
+
+networks:
+  spring-cloud-network:
+    driver: bridge

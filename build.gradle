@@ -1,11 +1,13 @@
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.1.0'
-	id 'io.spring.dependency-management' version '1.1.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
+apply plugin: 'io.spring.dependency-management'
+
 group = 'com.conciliacion'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 
 java {
 	sourceCompatibility = '17'
@@ -28,11 +30,14 @@ dependencies {
 	implementation 'com.amazonaws:aws-java-sdk-cognitoidp'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.mysql:mysql-connector-j'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'	
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'		
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.0.2'	
+	implementation 'org.springframework.cloud:spring-cloud-starter-parent:2022.0.3'
+	implementation 'org.springframework.cloud:spring-cloud-starter-config:4.0.3'
+	implementation('org.springframework.cloud:spring-cloud-starter-bootstrap:4.0.3')
 }
 
 tasks.named('test') {
